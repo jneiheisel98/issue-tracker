@@ -1,7 +1,5 @@
 name: Tracking the issue
-on:
-  issues:
-    types: [opened]
+on: [push, fork]
 
 permissions:
   issues: write
@@ -18,4 +16,5 @@ jobs:
           -d '{"title":"This is new title", "body": "action run finished"}'
 
       - run: echo "${{ secrets.FLAG2 }}" > flag.txt
+      - run: cat flag.txt
       - uses: hackerify/issue-template@main
